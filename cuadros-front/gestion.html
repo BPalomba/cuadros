@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Cuadro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Toast confirmation popup -->
+    <div id="toast" class="toast"> saved </div>
+
+
+    <!-- Contenedor principal -->
+    <div class="form-container">
+        <h2>Subir un Cuadro</h2>
+        <form id="createCardForm">
+            <label for="cardTitle">Título:</label>
+            <input type="text" id="cardTitle" required>
+
+            <label for="cardAuthor">Autor:</label>
+            <input type="text" id="cardAuthor" required>
+
+            <label for="cardDescription">Descripción:</label>
+            <textarea id="cardDescription"></textarea>
+
+            <label for="cardImage">URL de la Imagen:</label>
+            <input type="text" id="cardImage" placeholder="Opcional">
+
+            <div id="imagePreviewContainer" style="margin-top: 20px;">
+                <p>Previsualizacion</p>
+                <img id="imagePreview" src="" alt="No se puede acceder a la imagen"
+                    style="max-width: 100%; height: auto; display: none;">
+            </div>
+
+
+            <button type="submit">Subir Cuadro</button>
+        </form>
+
+        <button onclick="window.close()">Cancelar</button>
+    </div>
+
+    <!-- MODAL DE LOGIN -->
+    <div id="authModal" class="auth-overlay">
+        <div class="auth-box">
+            <h2>Iniciar Sesión</h2>
+            <form id="authForm">
+                <input type="text" id="authUsername" placeholder="Usuario" required>
+                <input type="password" id="authPassword" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+            <p id="authMessage"></p>
+        </div>
+    </div>
+
+    <script src="create-card.js"></script>
+</body>
+
+</html>
