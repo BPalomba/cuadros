@@ -21,7 +21,7 @@ function showToast(message) {
 
 ////////////////////////////////////////////////////////////////////////////
 
-const API_URL = "http://localhost:8080/image"; // Cambia esto según tu backend
+const API_URL = "https://cuadros.onrender.com/image"; // Cambia esto según tu backend
 
 document.addEventListener("DOMContentLoaded", () => {
     loadCards(); // Cargar las cartas cuando la página se carga

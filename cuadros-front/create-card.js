@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const credentials = btoa(username + ":" + password); // Codifica en Base64
 
         try {
-            const response = await fetch("http://localhost:8080/image/test", { // Endpoint protegido
+            const response = await fetch("https://cuadros.onrender.com/image/test", { // Endpoint protegido
                 method: "GET",
                 headers: {
                     "Authorization": "Basic " + credentials,
@@ -87,7 +87,7 @@ document.getElementById("createCardForm").addEventListener("submit", async funct
 
 
     try {
-        const response = await fetch("http://localhost:8080/image", {
+        const response = await fetch("https://cuadros.onrender.com/image", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
