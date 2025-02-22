@@ -26,6 +26,15 @@ This project is a web application based on **Spring Boot** for the backend and *
 | **PUT** | `image/{id}` | Update an image by ID |
 | **DELETE** | `/image/{id}` | Delete an image by ID |
 
+## 🌍 Deployment URLs
+- **Frontend:** [https://marinacuadros.vercel.app](https://marinacuadros.vercel.app)
+- **Backend:** [https://cuadros.onrender.com](https://cuadros.onrender.com)
+
+
+---
+
+📌 *Developed by Bruno Palombarini*
+
 ## 🚀 Deployment with Docker
 
 ### 🔧 Backend (Spring Boot)
@@ -52,10 +61,5 @@ This project is a web application based on **Spring Boot** for the backend and *
    docker run -p 80:80 cuadros-frontend
    ```
 
-## 🌍 Deployment URLs
-- **Frontend:** [https://marinacuadros.vercel.app](https://marinacuadros.vercel.app)
-- **Backend:** [https://cuadros.onrender.com](https://cuadros.onrender.com)
-
-
 ---
-📌 *Developed by Bruno Palombarini*
+
