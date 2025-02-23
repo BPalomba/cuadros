@@ -68,7 +68,10 @@ async function loadCards() {
 
 
 
-        if (!response.ok) throw new Error('Error al cargar las tarjetas');
+        if (!response.ok) {
+            showToast('Error al cargar las tarjetas');
+            throw new Error('Error al cargar las tarjetas');
+        }
         const cards = await response.json();
 
         const container = document.querySelector(".container");
