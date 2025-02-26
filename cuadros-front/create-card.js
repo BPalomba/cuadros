@@ -1,7 +1,6 @@
 // LOGIN
 
-API_URL = "https://cuadros.onrender.com";
-API_URL = "http://localhost:8080"
+const API_URL = "https://cuadros.onrender.com";
 
 
 document.addEventListener("DOMContentLoaded", () => {
