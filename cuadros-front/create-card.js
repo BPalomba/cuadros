@@ -1,5 +1,9 @@
 // LOGIN
 
+API_URL = "https://cuadros.onrender.com";
+API_URL = "http://localhost:8080"
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const loginModal = document.getElementById("authModal");
 
@@ -16,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const credentials = btoa(username + ":" + password); // Codifica en Base64
 
         try {
-            const response = await fetch("https://cuadros.onrender.com/image/test", { // Endpoint protegido
+            const response = await fetch(`${API_URL}/image/test `, { // Endpoint protegido
                 method: "GET",
                 headers: {
                     "Authorization": "Basic " + credentials,
@@ -39,6 +43,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// showed text is the param // TOAST
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.remove("hide");
+    toast.classList.add("show");
+
+    // time to go up 
+    setTimeout(() => {
+        toast.classList.add("hide");
+    }, 2500);
+
+    //Time to hide in ms
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+
+}
+
 
 // Logout
 function logout() {
@@ -66,16 +90,20 @@ document.getElementById("cardImage").addEventListener("input", function (event) 
     }
 });
 
-// FETCH
+
+
+// FETCH POST
 document.getElementById("createCardForm").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const title = document.getElementById("cardTitle").value;
-    const author = document.getElementById("cardAuthor").value;
+    const available = document.getElementById("cardAvailable").checked;
+    const technique = document.getElementById("cardTechnique").value;
+    const size = document.getElementById("cardSize").value;
     const description = document.getElementById("cardDescription").value;
-    const imageUrl = document.getElementById("cardImage").value || "./resources/pajarito.jpg";
+    const imageUrl = document.getElementById("cardImage").value;
 
-    const newCard = { title, author, description, imageUrl };
+
+    const newCard = { available, technique, size, imageUrl, description };
 
 
     const credentials = sessionStorage.getItem("authToken");
@@ -85,9 +113,9 @@ document.getElementById("createCardForm").addEventListener("submit", async funct
         return; // Detener la ejecución si no hay credenciales
     }
 
-
+    // CREATE NEW CARD
     try {
-        const response = await fetch("https://cuadros.onrender.com/image", {
+        const response = await fetch(`${API_URL}/image`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -101,31 +129,13 @@ document.getElementById("createCardForm").addEventListener("submit", async funct
             throw new Error("Error al crear la tarjeta");
         } else {
             showToast("Tarjeta creada exitosamente");
+            document.getElementById("createCardForm").reset();
         }
-        // Cerrar la pestaña después de la creación
-        window.opener.location.reload(); // Recargar la página principal
-        window.close();
+
     } catch (error) {
         console.error("Error al crear la tarjeta:", error);
     }
 });
 
-// showed text is the param // TOAST
-function showToast(message) {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.classList.remove("hide");
-    toast.classList.add("show");
 
-    // time to go up 
-    setTimeout(() => {
-        toast.classList.add("hide");
-    }, 2500);
-
-    //Time to hide in ms
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 3000);
-
-}
 

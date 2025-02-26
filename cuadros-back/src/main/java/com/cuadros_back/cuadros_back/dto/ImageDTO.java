@@ -1,8 +1,6 @@
 package com.cuadros_back.cuadros_back.dto;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,8 +15,9 @@ public class ImageDTO {
 
     private Long id;
 
-    private String title;
-    private String author;
-    private String imageUrl;
+    private Boolean available;
+    private String technique;
     private String description;
+    private String size;
+    private String imageUrl;
 }

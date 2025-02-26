@@ -5,13 +5,34 @@
     box-sizing: border-box;
 }
 
+/* Importar las fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+/* Aplicar la fuente a los títulos */
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 700;
+}
+
+/* Aplicar la fuente al contenido general */
+body,
+p,
+span,
+a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
 body {
-    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -55,7 +76,7 @@ body {
     margin-bottom: 10px;
 }
 
-.card-author {
+.card-text {
     font-size: 1rem;
     color: #555;
     margin-bottom: 10px;
@@ -298,4 +319,186 @@ body {
     margin-top: 10px;
     color: red;
     font-weight: bold;
+}
+
+/* Clase para cuando la tarjeta está disponible */
+.available {
+    color: #343a40;
+    /* Color de texto gris oscuro (más elegante) */
+    font-weight: bold;
+    /* Texto en negrita */
+    background-color: #d4edda;
+    /* Fondo verde claro */
+    border: 2px solid #28a745;
+    /* Borde verde más suave */
+    padding: 10px;
+    /* Espaciado interno para mayor claridad */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 128, 0, 0.3);
+    /* Sombra suave verde */
+    text-align: center;
+    /* Centrar el texto */
+    transition: background-color 0.3s ease;
+    /* Transición suave para el cambio de fondo */
+    cursor: default;
+    /* El cursor no cambia */
+}
+
+/* Cuando el ratón pasa sobre la tarjeta disponible */
+.available:hover {
+    background-color: #c3e6cb;
+    /* Cambia el fondo cuando se pasa el ratón */
+}
+
+/* Clase para cuando la tarjeta no está disponible */
+.noAvailable {
+    color: #343a40;
+    /* Color de texto gris oscuro */
+    font-weight: bold;
+    /* Texto en negrita */
+    background-color: #f8d7da;
+    /* Fondo rojo claro */
+    border: 2px solid #dc3545;
+    /* Borde rojo más suave */
+    padding: 10px;
+    /* Espaciado interno para mayor claridad */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(255, 0, 0, 0.3);
+    /* Sombra suave roja */
+    text-align: center;
+    /* Centrar el texto */
+    transition: background-color 0.3s ease;
+    /* Transición suave para el cambio de fondo */
+    cursor: default;
+    /* El cursor no cambia */
+}
+
+/* Cuando el ratón pasa sobre la tarjeta no disponible */
+.noAvailable:hover {
+    background-color: #f1b0b7;
+    /* Cambia el fondo cuando se pasa el ratón */
+}
+
+
+
+
+
+
+
+
+
+/* Estilos generales para el header */
+header {
+    background-color: #f4f4f4;
+    /* Fondo blanco */
+    color: #333333;
+    /* Texto oscuro */
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #f1f1f1;
+    /* Añadí una línea sutil debajo */
+}
+
+/* Contenedor del header para mejor alineación */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título del header */
+header h1 {
+    font-size: 2.5em;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333333;
+    /* Color del texto */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* Espaciado entre letras */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    /* Centrar en el eje horizontal */
+    align-items: center;
+    /* Alinear verticalmente */
+    gap: 20px;
+    /* Espacio entre los elementos */
+    flex-wrap: wrap;
+    /* Permite que los elementos bajen de línea en pantallas pequeñas */
+}
+
+/* Información de contacto */
+.wsp {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    color: #555555;
+    /* Color gris más suave */
+}
+
+.gmail {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    /* Color gris más suave */
+}
+
+.instagram {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    /* Color gris más suave */
+}
+
+/* Estilo para el ícono de WhatsApp */
+.wsp i {
+    font-size: 1.8em;
+    color: #25D366;
+    /* Color verde de WhatsApp */
+    transition: transform 0.3s ease;
+}
+
+i {
+    font-size: 1.8em;
+    /* Color verde de WhatsApp */
+    transition: transform 0.3s ease;
+}
+
+.contact-info i:hover {
+    transform: scale(1.1);
+    /* Aumentar ícono al pasar el ratón */
+}
+
+/* Responsive: Ajustar el tamaño de la fuente en pantallas pequeñas */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+        /* Hacer más pequeño el título en móviles */
+    }
+
+    .contact-info {
+        font-size: 1em;
+        /* Reducir el tamaño de texto */
+        gap: 10px;
+        /* Reducir el espacio entre íconos y texto */
+    }
 }
