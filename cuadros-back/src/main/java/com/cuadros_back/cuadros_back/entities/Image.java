@@ -19,8 +19,11 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
+    // Selled or not
+    private Boolean available;
+    private String technique;
+    private String size;
     private String description;
-    private String author;
     private String imageUrl;
+
 }

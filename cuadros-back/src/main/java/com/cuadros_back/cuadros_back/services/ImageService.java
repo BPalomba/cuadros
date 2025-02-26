@@ -39,9 +39,10 @@ public class ImageService {
         return images.stream()
                 .map(image -> ImageDTO.builder()
                         .id(image.getId())
-                        .title(image.getTitle())
+                        .available(image.getAvailable())
                         .description(image.getDescription())
-                        .author(image.getAuthor())
+                        .size(image.getSize())
+                        .technique(image.getSize())
                         .imageUrl(image.getImageUrl())
                         .build())
                 .collect(Collectors.toList());
@@ -53,8 +54,9 @@ public class ImageService {
         if (persistedImage.isPresent()){
             Image existingImage = persistedImage.get();
             existingImage.setImageUrl(imageDTO.getImageUrl());
-            existingImage.setAuthor(imageDTO.getAuthor());
-            existingImage.setTitle(imageDTO.getTitle());
+            existingImage.setTechnique(imageDTO.getTechnique());
+            existingImage.setAvailable(imageDTO.getAvailable());
+            existingImage.setSize(imageDTO.getSize());
             existingImage.setDescription(imageDTO.getDescription());
 
             Image updatedImage = saveImage(existingImage);
@@ -68,9 +70,10 @@ public class ImageService {
 
         Image image = Image.builder()
                 .imageUrl(imageDTO.getImageUrl())
-                .author(imageDTO.getAuthor())
+                .available(imageDTO.getAvailable())
                 .description(imageDTO.getDescription())
-                .title(imageDTO.getTitle())
+                .size(imageDTO.getSize())
+                .technique(imageDTO.getTechnique())
                 .build();
 
         Image savedImage = saveImage(image);
@@ -82,9 +85,10 @@ public class ImageService {
     public ImageDTO convertToDTO(Image image){
         return ImageDTO.builder()
                 .id(image.getId())
-                .author(image.getAuthor())
+                .technique(image.getTechnique())
                 .imageUrl(image.getImageUrl())
-                .title(image.getTitle())
+                .available(image.getAvailable())
+                .size(image.getSize())
                 .description(image.getDescription())
                 .build();
     }

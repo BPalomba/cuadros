@@ -18,17 +18,21 @@
     <div class="form-container">
         <h2>Subir un Cuadro</h2>
         <form id="createCardForm">
-            <label for="cardTitle">Título:</label>
-            <input type="text" id="cardTitle" required>
 
-            <label for="cardAuthor">Autor:</label>
-            <input type="text" id="cardAuthor" required>
+            <label for="cardAvailable">Disponible: </label>
+            <input type="checkbox" id="cardAvailable">
+
+            <label for="cardTechnique">Tecnica: </label>
+            <input id="cardTechnique">
+
+            <label for="cardSize">Tamaño: (AlturaxBase) </label>
+            <input id="cardSize">
 
             <label for="cardDescription">Descripción:</label>
             <textarea id="cardDescription"></textarea>
 
             <label for="cardImage">URL de la Imagen:</label>
-            <input type="text" id="cardImage" placeholder="Opcional">
+            <input type="text" id="cardImage" placeholder="Requerido" required>
 
             <div id="imagePreviewContainer" style="margin-top: 20px;">
                 <p>Previsualizacion</p>

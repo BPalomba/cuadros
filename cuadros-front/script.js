@@ -21,7 +21,8 @@ function showToast(message) {
 
 ////////////////////////////////////////////////////////////////////////////
 
-const API_URL = "https://cuadros.onrender.com/image"; // Cambia esto según tu backend
+API_URL = "https://cuadros.onrender.com/image";
+API_URL = "http://localhost:8080/image"
 
 document.addEventListener("DOMContentLoaded", () => {
     loadCards(); // Cargar las cartas cuando la página se carga
@@ -129,11 +130,20 @@ function createCardElement(card) {
     const div = document.createElement("div");
     div.classList.add("card");
 
+    if (card.available) {
+        availableClass = "available";
+        availableText = "Disponible"
+    } else {
+        availableClass = "noAvailable";
+        availableText = "Vendido"
+    }
+
     div.innerHTML = `
-        <img src="${card.imageUrl || './resources/pajarito.jpg'}" alt="Imagen de la tarjeta" class="card-image">
-        <div class="card-content">
-            <h2 class="card-title">${card.title}</h2>
-            <p class="card-author">Autor: ${card.author}</p>
+        <img src="${card.imageUrl}" alt="Imagen de la tarjeta" class="card-image">
+        <div class="card-content" id="${card.id}">
+            <p class="card-text ${availableClass}">${availableText}</p>
+            <p class="card-text">${card.technique}</p>
+            <p class="card-text">${card.size}</p>
             <p class="card-description">${card.description || ''}</p>
         </div>
     `;
