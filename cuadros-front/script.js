@@ -128,6 +128,7 @@ async function deleteCard(id) {
 function createCardElement(card) {
     const div = document.createElement("div");
     div.classList.add("card");
+    div.id = card.id;
 
     if (card.available) {
         availableClass = "available";
