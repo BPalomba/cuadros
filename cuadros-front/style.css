@@ -36,12 +36,16 @@ body {
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 20px;
     width: 100%;
     padding: 20px;
     max-width: 1200px;
+    column-count: 3;
+}
+
+.card:nth-child(odd) {
+    grid-row: span 2;
+    /* Algunas cards ocuparán 2 filas */
 }
 
 .card {
@@ -50,6 +54,8 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    margin-bottom: 3.5vh;
+
 }
 
 .card:hover {
@@ -488,17 +494,18 @@ i {
     /* Aumentar ícono al pasar el ratón */
 }
 
-/* Responsive: Ajustar el tamaño de la fuente en pantallas pequeñas */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 2em;
-        /* Hacer más pequeño el título en móviles */
+/* 📱 Para tablets y pantallas medianas */
+@media (max-width: 1024px) {
+    .container {
+        column-count: 2;
+        /* Reduce a 2 columnas */
     }
+}
 
-    .contact-info {
-        font-size: 1em;
-        /* Reducir el tamaño de texto */
-        gap: 10px;
-        /* Reducir el espacio entre íconos y texto */
+/* 📱 Para celulares */
+@media (max-width: 600px) {
+    .container {
+        column-count: 1;
+        /* Solo una columna en móviles */
     }
 }
