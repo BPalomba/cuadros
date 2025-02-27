@@ -101,6 +101,8 @@ document.getElementById("createCardForm").addEventListener("submit", async funct
     const description = document.getElementById("cardDescription").value;
     const imageUrl = document.getElementById("cardImage").value;
 
+    // reverse values
+    available = !available;
 
     const newCard = { available, technique, size, imageUrl, description };
 
