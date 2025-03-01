@@ -61,7 +61,7 @@ async function imageUrl() {
 
 
         try {
-            const response = await fetch(`http://localhost:8080/image/imageUrl`, {
+            const response = await fetch(`${URL}/image/imageUrl`, {
                 method: "GET",
                 credentials: 'include'
             });
