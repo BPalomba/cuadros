@@ -42,7 +42,7 @@ public class ImageService {
                         .available(image.getAvailable())
                         .description(image.getDescription())
                         .size(image.getSize())
-                        .technique(image.getTechnique())
+                        .technique(image.getSize())
                         .imageUrl(image.getImageUrl())
                         .build())
                 .collect(Collectors.toList());

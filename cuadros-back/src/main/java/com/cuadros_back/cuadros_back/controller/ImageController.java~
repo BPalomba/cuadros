@@ -22,9 +22,6 @@ public class ImageController {
     @Autowired
     private ImageService imageService;
 
-    @Autowired
-    private WebScrappingService webScrappingService;
-
     @GetMapping
     public ResponseEntity<?> getAll(){
         try{
@@ -46,7 +43,7 @@ public class ImageController {
     // https://photos.app.goo.gl/FgYsf6pmpRYLSVDH7
     @GetMapping("/imageUrl")
     public ResponseEntity getImageUrl(){
-        return ResponseEntity.ok(webScrappingService.scrapeWebsite("https://photos.app.goo.gl/FgYsf6pmpRYLSVDH7"));
+        return ResponseEntity.ok(WebScrappingService.scrapeWebsite());
     }
 
 

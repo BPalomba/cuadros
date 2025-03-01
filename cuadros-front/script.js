@@ -79,6 +79,10 @@ async function loadCards() {
 
         // Renderizar las tarjetas
         cards.forEach(card => {
+
+            console.log("card: ", card)
+            console.log("card.technique = " + card.technique)
+
             container.appendChild(createCardElement(card));
         });
     } catch (error) {
@@ -137,6 +141,8 @@ function createCardElement(card) {
         availableClass = "noAvailable";
         availableText = "Vendido"
     }
+
+    console.log("la tecnica es : " + card.technique)
 
     div.innerHTML = `
         <img src="${card.imageUrl}" alt="Imagen de la tarjeta" class="card-image">

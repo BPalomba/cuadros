@@ -4,6 +4,11 @@ const API_URL = "https://cuadros.onrender.com";
 
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    // adds listener for load images
+    document.getElementById("imgUrlButton").removeEventListener("click", imageUrl);
+    document.getElementById("imgUrlButton").addEventListener("click", imageUrl)
+
     const loginModal = document.getElementById("authModal");
 
     // Si el usuario no está autenticado, mostrar el modal
@@ -19,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const credentials = btoa(username + ":" + password); // Codifica en Base64
 
         try {
-            const response = await fetch(`${API_URL}/image/test `, { // Endpoint protegido
+            const response = await fetch(`${API_URL}/image/test`, { // Endpoint protegido
                 method: "GET",
                 headers: {
                     "Authorization": "Basic " + credentials,
@@ -41,7 +46,93 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("authMessage").innerText = "Error en la conexión ❌";
         }
     });
+
+
 });
+
+
+// shows the images that can be added
+async function imageUrl() {
+    const modalImgUrl = document.getElementById('modalImgUrl');
+    const modalGallery = document.getElementById('modalGallery');
+    const cardImageInput = document.getElementById('cardImage');
+
+    try {
+
+
+        try {
+            const response = await fetch(`http://localhost:8080/image/imageUrl`, {
+                method: "GET",
+                credentials: 'include'
+            });
+
+            if (!response.ok) {
+                showToast("Error al abrir las imageUrl")
+                throw new Error("Error en la respuesta");
+            }
+            const imgUrls = await response.json();  // 2. Corregir nombre de variable
+
+            console.log(imgUrls.length)
+
+            // 3. Limpiar el modal antes de cargar nuevas imágenes
+            modalGallery.innerHTML = '';
+
+            // 4. Corregir forEach y creación de imágenes
+            imgUrls.forEach(imgUrl => {
+
+                if (!document.querySelector(`img[src="${imgUrl}"]`)) {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'gallery-item';
+
+                    const img = document.createElement('img');
+                    img.src = imgUrl;
+                    img.alt = "Imagen disponible";
+                    img.style.cursor = 'pointer';
+                    img.style.maxWidth = '200px';
+                    img.style.margin = '5px';
+
+                    img.onclick = () => {
+                        cardImageInput.value = imgUrl;  // 5. Usar variable cacheada
+
+
+                        const imagePreview = document.getElementById("imagePreview");
+
+                        if (imgUrl) {
+                            imagePreview.src = imgUrl;
+                            imagePreview.style.display = "block";  // Mostrar la imagen
+                        } else {
+                            imagePreview.style.display = "none";  // Ocultar la imagen si no hay URL
+                        }
+
+                        closeModalImgUrl();
+                    };
+
+                    imgContainer.appendChild(img);
+                    modalGallery.appendChild(imgContainer)
+                };
+            });
+
+            // 6. Mostrar el modal después de cargar contenido
+            modalImgUrl.style.display = "block";
+
+        } catch (error) {
+            showToast("Error al cargar imágenes");
+            console.error("Error:", error);
+            closeModalImgUrl();
+        }
+
+
+    } catch (error) {
+        showToast("Error al configurar el botón");
+        console.error("Error crítico:", error);
+    }
+}
+
+function closeModalImgUrl() {
+
+    // close modal
+    document.getElementById('modalImgUrl').style.display = "none";
+}
 
 // showed text is the param // TOAST
 function showToast(message) {
@@ -77,7 +168,7 @@ function logout() {
 // Logica
 // PREVIEW IMAGEN
 
-document.getElementById("cardImage").addEventListener("input", function (event) {
+document.getElementById("cardImage").addEventListener("change", function (event) {
     const imageUrl = event.target.value;
     const imagePreview = document.getElementById("imagePreview");
 
@@ -95,17 +186,16 @@ document.getElementById("cardImage").addEventListener("input", function (event) 
 document.getElementById("createCardForm").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const available = document.getElementById("cardAvailable").checked;
+    // available must be reversed
+    const available = !document.getElementById("cardAvailable").checked;
     const technique = document.getElementById("cardTechnique").value;
     const size = document.getElementById("cardSize").value;
     const description = document.getElementById("cardDescription").value;
     const imageUrl = document.getElementById("cardImage").value;
 
-    // reverse values
-    available = !available;
-
     const newCard = { available, technique, size, imageUrl, description };
 
+    console.log("card creada con tecnica : " + newCard.technique)
 
     const credentials = sessionStorage.getItem("authToken");
 
@@ -137,6 +227,8 @@ document.getElementById("createCardForm").addEventListener("submit", async funct
         console.error("Error al crear la tarjeta:", error);
     }
 });
+
+
 
 
 

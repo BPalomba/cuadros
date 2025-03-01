@@ -509,3 +509,212 @@ i {
         /* Solo una columna en móviles */
     }
 }
+
+
+
+
+/* ImgUrl */
+
+
+.divImgUrl {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 600px;
+    margin: 1.5rem 0;
+    padding: 1.2rem;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.divImgUrl label {
+    font-weight: 500;
+    color: #2d3436;
+    font-size: 0.9rem;
+    margin-bottom: -0.3rem;
+}
+
+#cardImage {
+    padding: 0.8rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+#cardImage:focus {
+    outline: none;
+    border-color: #74b9ff;
+    box-shadow: 0 0 0 3px rgba(116, 185, 255, 0.25);
+}
+
+#cardImage::placeholder {
+    color: #b2bec3;
+    font-style: italic;
+}
+
+#imgUrlButton {
+    align-self: flex-start;
+    padding: 0.7rem 1.5rem;
+    background-color: #74b9ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+#imgUrlButton:hover {
+    background-color: #54a0ff;
+    transform: translateY(-1px);
+}
+
+#imgUrlButton:active {
+    transform: translateY(0);
+}
+
+/* Estilos para validación */
+#cardImage:invalid {
+    border-color: #ff7675;
+}
+
+#cardImage:invalid:focus {
+    box-shadow: 0 0 0 3px rgba(255, 118, 117, 0.25);
+}
+
+
+/* img url modal */
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.modal-a {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content-a {
+    position: relative;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-a img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* modal */
+
+
+/* Estilo para el modal */
+.modalImgUrl {
+    display: none;
+    /* Inicialmente oculto */
+    position: fixed;
+    z-index: 1;
+    /* Se muestra encima de todo el contenido */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Ancho completo */
+    height: 100%;
+    /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fondo oscuro semi-transparente */
+    overflow: auto;
+    /* Permite hacer scroll si es necesario */
+    padding-top: 60px;
+}
+
+/* Estilo para el contenido del modal */
+.modal-content-a {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columnas de igual tamaño */
+    gap: 10px;
+    /* Espacio entre las imágenes */
+    width: 90%;
+    /* Ancho del contenido */
+    max-width: 900px;
+    /* Ancho máximo */
+    max-height: 80vh;
+    /* Limitar altura máxima del modal */
+    overflow-y: auto;
+    /* Scroll vertical si las imágenes son muchas */
+    padding: 10px;
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.close:hover,
+.close:focus {
+    color: #f1f1f1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para las imágenes dentro del modal */
+.modal-content-a img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* Bordes redondeados */
+    object-fit: cover;
+    /* Mantiene la imagen bien ajustada sin deformarla */
+}
+
+/* Fondo del modal cuando se hace clic */
+.modalImgUrl:target {
+    display: block;
+}

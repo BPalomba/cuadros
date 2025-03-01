@@ -31,10 +31,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable) // Desactiva CSRF (no es necesario para JWT)
+                .csrf(AbstractHttpConfigurer::disable) // Desactiva CSRF
                 .cors().and()
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/image").permitAll() // Permitir GET sin autenticación
+                        .requestMatchers(HttpMethod.GET, "/image", "/image/imageUrl").permitAll() // Permitir GET sin autenticación
                         .requestMatchers(HttpMethod.GET, "test").authenticated()
                         .anyRequest().authenticated() // Restringir POST, PUT, DELETE
                 )

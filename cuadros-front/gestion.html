@@ -31,18 +31,32 @@
             <label for="cardDescription">Descripción:</label>
             <textarea id="cardDescription"></textarea>
 
-            <label for="cardImage">URL de la Imagen:</label>
-            <input type="text" id="cardImage" placeholder="Requerido" required>
+            <div class="divImgUrl">
 
-            <div id="imagePreviewContainer" style="margin-top: 20px;">
-                <p>Previsualizacion</p>
-                <img id="imagePreview" src="" alt="No se puede acceder a la imagen"
-                    style="max-width: 100%; height: auto; display: none;">
+                <label for="cardImage">URL de la Imagen:</label>
+                <input type="text" id="cardImage" placeholder="Requerido" required>
+                <button id="imgUrlButton" type="button"> Abrir Imagenes</button>
+
+                <div id="imagePreviewContainer" style="margin-top: 20px;">
+                    <p>Previsualizacion</p>
+                    <img id="imagePreview" src="" alt="No se puede acceder a la imagen"
+                        style="max-width: 100%; height: auto; display: none;">
+                </div>
+
+            </div>
+
+            <!-- Modal ImageUrl -->
+            <div id="modalImgUrl" class="modalImgUrl">
+                <span class="close" onclick="closeModalImgUrl()">&times;</span>
+                <div class="modal-content-a" id="modalGallery"></div>
             </div>
 
 
             <button type="submit">Subir Cuadro</button>
         </form>
+
+
+
 
         <button onclick="window.close()">Cancelar</button>
     </div>
