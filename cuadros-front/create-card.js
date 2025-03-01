@@ -61,7 +61,7 @@ async function imageUrl() {
 
 
         try {
-            const response = await fetch(`${URL}/image/imageUrl`, {
+            const response = await fetch(`${API_URL}/image/imageUrl`, {
                 method: "GET",
                 credentials: 'include'
             });
