@@ -45,8 +45,6 @@ public class WebScrappingService {
                     if (index != -1) {
                         String highCualityUrl = lowCualityUrl.substring(0, index);
                         imageUrls.add(highCualityUrl);
-
-                        System.out.println(imageUrls.size());
                     }
                 }
             }
