@@ -84,4 +84,11 @@ public class ImageController {
     }
 
 
+//    Ping to see if service is up
+    @RequestMapping(value = "/ping", method = RequestMethod.HEAD)
+    public ResponseEntity<?> ping(){
+        return ResponseEntity.ok("pong");
+    }
+
+
 }
