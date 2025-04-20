@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .cors().and()
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/image", "/image/imageUrl").permitAll() // Permitir GET sin autenticación
-                        .requestMatchers(HttpMethod.HEAD, "/image").permitAll()
+                        .requestMatchers(HttpMethod.HEAD, "/image" , "/ping").permitAll()
                         .requestMatchers(HttpMethod.GET, "/test").authenticated()
                         .anyRequest().authenticated() // Restringir POST, PUT, DELETE
                 )
