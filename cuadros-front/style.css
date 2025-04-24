@@ -19,10 +19,15 @@ h3 {
 /* Aplicar la fuente al contenido general */
 body,
 p,
-span,
-a {
+span {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
+}
+
+a {
+    all: unset;
+    font-weight: 400;
+    cursor: pointer;
 }
 
 body {
