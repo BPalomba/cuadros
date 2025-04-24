@@ -72,7 +72,6 @@ async function imageUrl() {
             }
             const imgUrls = await response.json();  // 2. Corregir nombre de variable
 
-            console.log(imgUrls.length)
 
             // 3. Limpiar el modal antes de cargar nuevas imágenes
             modalGallery.innerHTML = '';
@@ -194,8 +193,6 @@ document.getElementById("createCardForm").addEventListener("submit", async funct
     const imageUrl = document.getElementById("cardImage").value;
 
     const newCard = { available, technique, size, imageUrl, description };
-
-    console.log("card creada con tecnica : " + newCard.technique)
 
     const credentials = sessionStorage.getItem("authToken");
 
