@@ -1,0 +1,12 @@
+# .gitignore
+/build/
+/.gradle/
+/out/
+/target/
+*.log
+*.jar
+*.class
+docker-compose.override.yml
+.env
+pg_data/
+
