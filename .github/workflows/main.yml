@@ -1,20 +1,12 @@
-name: CI/CD Deploy to NUC
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-   
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup SSH key
-        uses: webfactory/ssh-agent@v0.8.1
+      - name: Setup SSH agent
+        uses: actions/ssh-agent@v0.7.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -28,4 +20,3 @@ jobs:
             git pull origin main
             docker compose build --no-cache
             docker compose up -d
-
