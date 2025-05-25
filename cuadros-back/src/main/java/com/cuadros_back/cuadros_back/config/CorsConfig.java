@@ -9,9 +9,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfig {
 
-    @Value("${url}")
-    private String url;
-
     @Bean
     public WebMvcConfigurer corsConfigurer() {
 
@@ -19,7 +16,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost","null",url,"https://marinacuadros.vercel.app/")
+                        .allowedOrigins("http://localhost","null","https://marinacuadros.vercel.app/")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*", "Authorization")
                         .allowCredentials(true);
