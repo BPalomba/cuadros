@@ -1,3 +1,10 @@
+name: CI/CD Deploy to NUC
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
