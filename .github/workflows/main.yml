@@ -16,7 +16,7 @@ jobs:
 
       # 2) Entra a tu carpeta y actualiza
       - name: Pull latest & rebuild
-        working-directory: ~/proyectos/cuadros
+        working-directory: /home/bruno/proyectos/cuadros
         run: |
           git pull origin main
           docker compose build --no-cache
