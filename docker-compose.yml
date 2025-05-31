@@ -13,6 +13,8 @@ services:
       - pg_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - traefik
 
   backend:
     build: ./cuadros-back
@@ -21,15 +23,18 @@ services:
       - "traefik.http.routers.backend.rule=Host(`marinacuadros.duckdns.org`) && PathPrefix(`/api`)"
       - "traefik.http.routers.backend.entrypoints=websecure"
       - "traefik.http.routers.backend.tls.certresolver=duckdns"
-      - "traefik.http.services.backend.loadbalancer.server.port=8080"
-      - "traefik.http.middlewares.strip-api.stripprefix.prefixes=/api"
-      - "traefik.http.routers.backend.middlewares=strip-api"
+      - "traefik.http.routers.backend.tls=true"
+       # Opcional: si necesitas quitar el prefijo /api antes de llegar al backend
+      - "traefik.http.middlewares.backend-stripprefix.stripprefix.prefixes=/api"
+      - "traefik.http.routers.backend.middlewares=backend-stripprefix"
     container_name: cuadros_backend
     env_file: .env
     ports:
       - "8080:8080"
     depends_on:
       - db
+    networks:
+      - traefik
 
   frontend:
     build: ./cuadros-front
