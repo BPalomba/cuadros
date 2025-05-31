@@ -1,6 +1,6 @@
 // LOGIN
 
-const API_URL = "marinacuadros.duckdns.org/api";
+const API_URL = "/api";
 
 
 document.addEventListener("DOMContentLoaded", () => {
