@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // Desactiva CSRF
                 .cors().and()
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/image", "/image/imageUrl", "/ping").permitAll() // Permitir GET sin autenticación
+                        .requestMatchers(HttpMethod.GET, "/image", "/image/imageUrl", "/ping" , "/api" , "api/image", "api/image/imageUrl",).permitAll() // Permitir GET sin autenticación
                         .requestMatchers(HttpMethod.HEAD, "/image" , "/ping").permitAll()
                         .requestMatchers(HttpMethod.GET, "/test").authenticated()
                         .anyRequest().authenticated() // Restringir POST, PUT, DELETE
