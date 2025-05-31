@@ -16,6 +16,14 @@ services:
 
   backend:
     build: ./cuadros-back
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`marinacuadros.duckdns.org`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.routers.backend.tls.certresolver=duckdns"
+      - "traefik.http.services.backend.loadbalancer.server.port=8080"
+      - "traefik.http.middlewares.strip-api.stripprefix.prefixes=/api"
+      - "traefik.http.routers.backend.middlewares=strip-api"
     container_name: cuadros_backend
     env_file: .env
     ports:
@@ -26,10 +34,21 @@ services:
   frontend:
     build: ./cuadros-front
     container_name: cuadros_frontend
-    ports:
-      - "80:80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cuadros-http.rule=Host(`marinacuadros.duckdns.org`)" #Dominio de la pagina
+      - "traefik.http.routers.cuadros-http.entrypoints=web"
+      - "traefik.http.routers.cuadros-https.tls=true"
+      - "traefik.http.routers.cuadros-https.tls.certresolver=duckdns"
+      - "traefik.http.routers.cuadros-https.entrypoints=websecure"
+      - "traefik.http.routers.cuadros-https.rule=Host(`marinacuadros.duckdns.org`)" #Dominio de la pagina
+    networks:
+      - traefik
 
 volumes:
   pg_data:
 
 
+networks:
+  traefik:
+    external: true
