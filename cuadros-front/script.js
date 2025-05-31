@@ -21,7 +21,7 @@ function showToast(message) {
 
 ////////////////////////////////////////////////////////////////////////////
 
-const API_URL = "/api/image";
+const API_URL = "marinacuadros.duckdns.org/api/image";
 
 document.addEventListener("DOMContentLoaded", () => {
     loadCards(); // Cargar las cartas cuando la página se carga
