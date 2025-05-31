@@ -1,6 +1,6 @@
 // LOGIN
 
-const API_URL = "http://192.168.100.243:8080";
+const API_URL = "/api";
 
 
 document.addEventListener("DOMContentLoaded", () => {

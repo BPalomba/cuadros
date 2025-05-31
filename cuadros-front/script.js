@@ -21,7 +21,7 @@ function showToast(message) {
 
 ////////////////////////////////////////////////////////////////////////////
 
-const API_URL = "http://192.168.100.243:8080/image";
+const API_URL = "/api/image";
 
 document.addEventListener("DOMContentLoaded", () => {
     loadCards(); // Cargar las cartas cuando la página se carga
