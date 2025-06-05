@@ -16,7 +16,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost","null","https://marinacuadros.vercel.app/","http://192.168.100.243/" ,"marinacuadros.duckdns.org")
+                        .allowedOrigins("http://localhost","null","https://marinacuadros.vercel.app","http://192.168.100.243" ,"marinacuadros.duckdns.org")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*", "Authorization")
                         .allowCredentials(true);

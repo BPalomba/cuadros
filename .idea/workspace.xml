@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3f3a155-cbb2-4983-b2c4-2897976c9676" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/cuadros.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cuadros.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cuadros-back/src/main/java/com/cuadros_back/cuadros_back/controller/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cuadros-back/src/main/java/com/cuadros_back/cuadros_back/controller/ImageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cuadros-front/create-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/cuadros-front/create-card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cuadros-front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cuadros-front/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cuadros-front/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/cuadros-front/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +35,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/bruni/Desktop/proyectos/crud",
+    "last_opened_file_path": "C:/Users/bruni/Desktop/proyectos/cuadros/cuadros-back",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -66,6 +66,7 @@
       <updated>1740003308747</updated>
       <workItem from="1743687857553" duration="1481000" />
       <workItem from="1743690078813" duration="702000" />
+      <workItem from="1749089411422" duration="21000" />
     </task>
     <servers />
   </component>

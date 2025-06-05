@@ -18,7 +18,6 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/image")
 public class ImageController {
-
     @Autowired
     private ImageService imageService;
 
@@ -50,6 +49,10 @@ public class ImageController {
     }
 
 
+    @CrossOrigin(
+            origins = "https://marinacuadros.duckdns.org",
+            allowCredentials = "true"
+    )
     @PostMapping
     public ResponseEntity<?> createImage(@RequestBody ImageDTO imageDTO) {
         try{
