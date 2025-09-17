@@ -28,9 +28,7 @@ This project is a web application based on **Spring Boot** for the backend and *
 | **DELETE** | `/image/{id}` | Delete an image by ID |
 
 ## 🌍 Deployment URLs
-- **Frontend:** [https://marinacuadros.vercel.app](https://marinacuadros.vercel.app)
-- **Backend:** [https://cuadros.onrender.com](https://cuadros.onrender.com)
-
+- **Frontend:** [https://marinacuadros.duckdns.org](https://marinacuadros.duckdns.org)
 
 ---
 
@@ -73,7 +71,7 @@ This project is a web application based on **Spring Boot** for the backend and *
 
 ![image](https://github.com/user-attachments/assets/05077c01-c34d-47f0-acdd-b4fa5e3b43ee)
 
- <h3> Chosin picture to upload </h3>
+ <h3> Choosing picture to upload </h3>
 
 ![image](https://github.com/user-attachments/assets/1bfa5e38-63b2-487e-b642-d9e4eb77c036)
 
