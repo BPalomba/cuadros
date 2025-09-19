@@ -1,6 +1,8 @@
 # 🖼️ Cuadros Web Application
 This project is a web application based on **Spring Boot** for the backend and **Vanilla JavaScript** for the frontend. The API is deployed on **Render**, while the user interface is hosted on **Vercel**.
 
+[DeepWiki Documentation](https://deepwiki.com/BPalomba/cuadros)
+
 ## 🛠️ Technologies Used
 - **Spring Boot** (Spring Web, Spring Data JPA, Spring Security)
 - **PostgreSQL** (for data storage)
