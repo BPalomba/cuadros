@@ -11,3 +11,4 @@ docker-compose.override.yml
 pg_data/
 actions-runner/
 
+actions-runner/
