@@ -42,10 +42,10 @@ public class ImageController {
     }
 
     // Returns a set with imageUrl in google photos album
-    // https://photos.app.goo.gl/FgYsf6pmpRYLSVDH7
+    // https://photos.google.com/share/AF1QipOE7ubVZf3nAXaxWNB8R5hWacOLeLYk1O1GLlIAhkazj_fj3vMr7E916pnjqro2Gw?key=WFpiNlRHOWg4MHNDaklhZEdCaGRCeVRYYUg1aDJR
     @GetMapping("/imageUrl")
     public ResponseEntity getImageUrl(){
-        return ResponseEntity.ok(webScrappingService.scrapeWebsite("https://photos.app.goo.gl/FgYsf6pmpRYLSVDH7"));
+        return ResponseEntity.ok(webScrappingService.scrapeWebsite("https://photos.google.com/share/AF1QipOE7ubVZf3nAXaxWNB8R5hWacOLeLYk1O1GLlIAhkazj_fj3vMr7E916pnjqro2Gw?key=WFpiNlRHOWg4MHNDaklhZEdCaGRCeVRYYUg1aDJR"));
     }
 
 
