@@ -24,6 +24,7 @@ public class Image {
     private String technique;
     private String size;
     private String description;
+    @Column(columnDefinition = "TEXT")
     private String imageUrl;
 
 }
